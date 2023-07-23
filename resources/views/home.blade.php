@@ -22,47 +22,56 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Size</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($files as $file)
+                        @if (count($files) > 0)
+                            <table class="table table-striped">
+                                <thead>
                                     <tr>
-                                        <td>{{ $file->name }}</td>
-                                        <td>
-                                            @if ($file->size / 1024 / 1024 < 1)
-                                                {{ floor($file->size / 1024) }} kB
-                                            @else
-                                                {{ floor($file->size / 1024 / 1024) }} MB
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(str_contains($file->type, 'office'))
-                                                application/office
-                                            @elseif(str_contains($file->type, 'zip'))
-                                                application/zip
-                                            @else
-                                                {{$file->type}}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <form action="{{route('drive.destroy', $file->name)}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <a href='{{route('drive.show', $file->id)}}' class="btn text-primary d-inline">View</a>
-                                                <input class="btn text-danger" type="submit" value="Delete">
-                                            </form>
-                                        </td>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Actions</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($files as $file)
+                                        <tr>
+                                            <td>{{ $file->name }}</td>
+                                            <td>
+                                                @if ($file->size / 1024 / 1024 < 1)
+                                                    {{ floor($file->size / 1024) }} kB
+                                                @else
+                                                    {{ floor($file->size / 1024 / 1024) }} MB
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if (str_contains($file->type, 'office'))
+                                                    application/office
+                                                @elseif(str_contains($file->type, 'zip'))
+                                                    application/zip
+                                                @else
+                                                    {{ $file->type }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('drive.destroy', $file->name) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href='{{ route('drive.show', $file->id) }}'
+                                                        class="btn text-primary d-inline">View</a>
+                                                    <input class="btn text-danger" type="submit" value="Delete">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class=" p-2">
+                                <h4 class="d-inline">
+                                    There is no files uploaded yet
+                                </h4>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
