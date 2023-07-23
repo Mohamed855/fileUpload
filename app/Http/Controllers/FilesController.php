@@ -13,7 +13,7 @@ class FilesController extends Controller
      */
     public function index() {
         return redirect() -> route('home')->with([
-            'files' => File::get(),
+            'files' => File::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 
@@ -58,9 +58,10 @@ class FilesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $name)
     {
-        File::where('id', $id)->delete();
+        File::where('name', $name)->delete();
+        unlink(public_path('files/' . $name));
         return redirect()->route('home')->with([
            'deleteMessage' => 'File Deleted Successfully',
         ]);

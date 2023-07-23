@@ -17,7 +17,7 @@
                 @endif
                 <div class="card">
                     <div class="p-4 card-header">
-                        <h3 class="d-inline">Files</h3>
+                        <h3 class="d-inline">File View</h3>
                         <a href='{{ route('drive.create') }}' class="btn btn-outline-primary float-end">Add New File</a>
                     </div>
 
@@ -41,12 +41,20 @@
                                             {{ floor($file->size / 1024 / 1024) }} MB
                                         @endif
                                     </td>
-                                    <td>{{ $file->type }}</td>
                                     <td>
-                                        <form action="{{route('drive.destroy', $file->id)}}" method="post">
+                                        @if(str_contains($file->type, 'office'))
+                                            application/office
+                                        @elseif(str_contains($file->type, 'zip'))
+                                            application/zip
+                                        @else
+                                            {{$file->type}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form action="{{route('drive.destroy', $file->name)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <input class="btn btn-outline-danger ml-4" type="submit" value="delete">
+                                            <input class="btn text-danger ml-4" type="submit" value="delete">
                                         </form>
                                     </td>
                                 </tr>

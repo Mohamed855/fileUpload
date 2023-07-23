@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with([
-            'files' => File::get(),
+            'files' => File::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 }

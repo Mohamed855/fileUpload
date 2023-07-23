@@ -25,7 +25,6 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Size</th>
                                     <th scope="col">Type</th>
@@ -35,7 +34,6 @@
                             <tbody>
                                 @foreach ($files as $file)
                                     <tr>
-                                        <td>{{ $file->id }}</td>
                                         <td>{{ $file->name }}</td>
                                         <td>
                                             @if ($file->size / 1024 / 1024 < 1)
@@ -44,13 +42,21 @@
                                                 {{ floor($file->size / 1024 / 1024) }} MB
                                             @endif
                                         </td>
-                                        <td>{{ $file->type }}</td>
                                         <td>
-                                            <form action="{{route('drive.destroy', $file->id)}}" method="post">
+                                            @if(str_contains($file->type, 'office'))
+                                                application/office
+                                            @elseif(str_contains($file->type, 'zip'))
+                                                application/zip
+                                            @else
+                                                {{$file->type}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <form action="{{route('drive.destroy', $file->name)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href='{{route('drive.show', $file->id)}}' class="btn btn-outline-primary d-inline" style="padding: 8px 15px;">view</a>
-                                                <input class="btn btn-outline-danger ml-4" type="submit" value="delete">
+                                                <a href='{{route('drive.show', $file->id)}}' class="btn text-primary d-inline">View</a>
+                                                <input class="btn text-danger" type="submit" value="Delete">
                                             </form>
                                         </td>
                                     </tr>
