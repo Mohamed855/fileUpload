@@ -14,7 +14,7 @@
                         <form action="/drive" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="file" name="file" id="file" class="btn btn-outline-primary"
-                                accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.pdf,.zip" required>
+                                accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.pdf,.zip"  required>
                             <button type="submit" class="btn btn-outline-primary p-2 mx-lg-2">Add file</button>
                             <span class="text-dark">Max size is 1000 MB</span>
                         </form>
