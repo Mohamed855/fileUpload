@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Drive')
+@section('title', 'File View')
 
 @section('content')
     <div class="row justify-content-center">
@@ -64,7 +64,7 @@
                             @if(explode('/', $file->type)[0] === 'image')
                                 <img class="img-fluid" src="/files/{{$file->name}}">
                             @else
-                                <img class="img-fluid" src="/files/file.png">
+                                <img class="img-fluid" src="/assets/imgs/file.png">
                             @endif
                         </div>
                     </div>

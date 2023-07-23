@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Drive')
+@section('title', 'File Upload')
 
 @section('content')
     <div class="row justify-content-center">
