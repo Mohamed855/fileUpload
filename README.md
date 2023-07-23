@@ -16,10 +16,10 @@ Multi user - Laravel file upload API for uploading and store files online
 - Each user can show only his files
 
 ## Screenshots
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/login.png?raw=true)" width="400" alt="all-products"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/register.png?raw=true)" width="400" alt="product-page"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/all-files.png?raw=true)" width="400" alt="create-product"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/add-file.png?raw=true)" width="400" alt="edit-details"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/view-file-by-id.png?raw=true)" width="400" alt="database"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/uploaded-successfully.png?raw=true)" width="400" alt="database"></p>
-<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/deleted-successfully.png?raw=true)" width="400" alt="database"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/login.png?raw=true)" width="400" alt="login page"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/register.png?raw=true)" width="400" alt="register page"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/all-files.png?raw=true)" width="400" alt="all user's files"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/add-file.png?raw=true)" width="400" alt="add file"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/view-file-by-id.png?raw=true)" width="400" alt="file page"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/uploaded-successfully.png?raw=true)" width="400" alt="file uploaded"></p>
+<p align="center"><img src="https://github.com/Mohamed855/fileUpload/blob/main/public/screenshots/deleted-successfully.png?raw=true)" width="400" alt="file deleted"></p>
